@@ -6,7 +6,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
 public class PhoneNumberReverserTest {
-
     @Test
     public void testReversePhoneNumbersInText() {
         String text = "These are my numbers 0997199, 093-51-12, 01-23-45-6.";

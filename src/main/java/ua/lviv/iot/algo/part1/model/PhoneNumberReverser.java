@@ -1,7 +1,5 @@
 package ua.lviv.iot.algo.part1.model;
 
-import ua.lviv.iot.algo.part1.reader.Reader;
-
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -24,14 +22,5 @@ public class PhoneNumberReverser {
         }
         matcher.appendTail(sb);
         return sb.toString();
-    }
-
-    public static void main(String[] args) {
-        Reader reader = new Reader();
-        String text = reader.readText();
-        PhoneNumberReverser reverser = new PhoneNumberReverser(text);
-        String reversedText = reverser.reversePhoneNumbersInText();
-        System.out.println("Original text: " + text);
-        System.out.println("Reversed text: " + reversedText);
     }
 }
