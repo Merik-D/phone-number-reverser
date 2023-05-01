@@ -4,7 +4,9 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class PhoneNumberReverser {
-    public static final Pattern PHONE_FORMATS = Pattern.compile("(\\d{3}-\\d{2}-\\d{2})|(\\d{7})|(\\d{2}-\\d{2}-\\d{2}-\\d)");
+    public static final Pattern PHONE_FORMATS_PATTERN = Pattern.compile(
+            "(\\d{3}-\\d{2}-\\d{2})|(\\d{7})|(\\d{2}-\\d{2}-\\d{2}-\\d)"
+    );
 
     private final String text;
 
@@ -13,12 +15,11 @@ public class PhoneNumberReverser {
     }
 
     public final String reversePhoneNumbersInText() {
-        Matcher matcher = PHONE_FORMATS.matcher(text);
-        StringBuffer sb = new StringBuffer();
+        Matcher matcher = PHONE_FORMATS_PATTERN.matcher(text);
+        StringBuilder sb = new StringBuilder();
         while (matcher.find()) {
             String phoneNumber = matcher.group();
-            StringBuilder reversedPhoneNumber = new StringBuilder(phoneNumber).reverse();
-            matcher.appendReplacement(sb, reversedPhoneNumber.toString());
+            matcher.appendReplacement(sb, new StringBuilder(phoneNumber).reverse().toString());
         }
         matcher.appendTail(sb);
         return sb.toString();

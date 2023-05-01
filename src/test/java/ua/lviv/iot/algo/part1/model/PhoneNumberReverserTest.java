@@ -14,4 +14,22 @@ public class PhoneNumberReverserTest {
         String actual = phoneNumberReverser.reversePhoneNumbersInText();
         assertEquals(expected, actual);
     }
+
+    @Test
+    public void testReversePhoneNumberInTextIfIsLetters() {
+        String text = "numbers 0997199aaa, 093-51-12, 01-23-45-6";
+        PhoneNumberReverser phoneNumberReverser = new PhoneNumberReverser(text);
+        String expected = "numbers 9917990aaa, 21-15-390, 6-54-32-10";
+        String actual = phoneNumberReverser.reversePhoneNumbersInText();
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testReversePhoneNumbersInTextEmptyString() {
+        String text = "";
+        PhoneNumberReverser phoneNumberReverser = new PhoneNumberReverser(text);
+        String expected = "";
+        String actual = phoneNumberReverser.reversePhoneNumbersInText();
+        assertEquals(expected, actual);
+    }
 }
